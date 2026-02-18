@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
         rel="stylesheet" />
-    <title>Dashboard | FinTrack</title>
+    <title>Settings | FinTrack</title>
     <link rel="stylesheet" href="style.css" />
 </head>
 
@@ -23,10 +23,10 @@
                 <button class="close-sidebar-btn" id="close-sidebar">×</button>
             </div>
             <ul class="nav-links">
-                <li class="active"><a href="index.html">Dashboard</a></li>
+                <li><a href="index.html">Dashboard</a></li>
                 <li><a href="transactions.html">Transactions</a></li>
                 <li><a href="wallet.html">Wallet</a></li>
-                <li><a href="settings.html">Settings</a></li>
+                <li class="active"><a href="settings.html">Settings</a></li>
             </ul>
             <div class="user-profile">
                 <div class="avatar"></div>
@@ -42,56 +42,27 @@
             <header class="top-bar">
                 <div class="header-left">
                     <button class="menu-btn" id="menu-btn">☰</button>
-                    <h1 id="page-title">Overview</h1>
+                    <h1>Settings</h1>
                 </div>
                 <button class="add-btn" id="add-btn">
                     <span class="plus-icon">+</span> New Transaction
                 </button>
             </header>
 
-            <!-- Dashboard View -->
-            <div id="dashboard-view" class="view-section active">
-                <!-- Balance Cards -->
-                <section class="balance-grid">
-                    <div class="card balance-card">
-                        <h3>Total Balance</h3>
-                        <h1 id="balance">$0.00</h1>
-                        <p class="trend positive">+2.4% from last month</p>
+            <!-- Settings View -->
+            <div id="settings-view" class="view-section">
+                <div class="card">
+                    <h3>App Settings</h3>
+                    <div class="setting-item" style="padding: 20px 0; border-bottom: 1px solid var(--border);">
+                        <h4>Dark Mode</h4>
+                        <p>Toggle app theme</p>
                     </div>
-                    <div class="card income-card">
-                        <div class="card-header">
-                            <h3>Income</h3>
-                            <div class="icon-box income-icon">↓</div>
-                        </div>
-                        <p id="money-plus" class="money plus">+$0.00</p>
+                    <div class="setting-item" style="padding: 20px 0;">
+                        <h4>Currency</h4>
+                        <p>Current: USD ($)</p>
                     </div>
-                    <div class="card expense-card">
-                        <div class="card-header">
-                            <h3>Expense</h3>
-                            <div class="icon-box expense-icon">↑</div>
-                        </div>
-                        <p id="money-minus" class="money minus">-$0.00</p>
-                    </div>
-                </section>
-
-                <!-- Charts & Recent Transactions -->
-                <section class="dashboard-grid">
-                    <div class="card chart-container">
-                        <h3>Expense Breakdown</h3>
-                        <div class="chart-wrapper">
-                            <canvas id="expenseChart"></canvas>
-                        </div>
-                    </div>
-
-                    <div class="card recent-transactions">
-                        <h3>Recent Transactions</h3>
-                        <ul id="list" class="list">
-                            <!-- Transactions will be injected here -->
-                        </ul>
-                    </div>
-                </section>
+                </div>
             </div>
-
         </main>
     </div>
 
@@ -116,8 +87,6 @@
         </div>
     </div>
 
-    <!-- Chart.js CDN -->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="script.js"></script>
 </body>
 
