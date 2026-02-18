@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet" />
+    <title>Expense | Premium Tracker</title>
+  <script type="module" crossorigin src="/assets/index-agUnJUa8.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/index-kOwF82dS.css">
+</head>
+
+<body>
+    <div class="app-container">
+        <!-- Sidebar / Navigation -->
+        <nav class="sidebar" id="sidebar">
+            <div class="brand">
+                <div class="logo-icon"></div>
+                <h2>FinTrack</h2>
+                <button class="close-sidebar-btn" id="close-sidebar">×</button>
+            </div>
+            <ul class="nav-links">
+                <li class="active" data-target="dashboard"><a href="#">Dashboard</a></li>
+                <li data-target="transactions"><a href="#">Transactions</a></li>
+                <li data-target="wallet"><a href="#">Wallet</a></li>
+                <li data-target="settings"><a href="#">Settings</a></li>
+            </ul>
+            <div class="user-profile">
+                <div class="avatar"></div>
+                <div class="user-info">
+                    <p class="name">User Name</p>
+                    <p class="role">Premium Member</p>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="top-bar">
+                <div class="header-left">
+                    <button class="menu-btn" id="menu-btn">☰</button>
+                    <h1 id="page-title">Overview</h1>
+                </div>
+                <button class="add-btn" id="add-btn">
+                    <span class="plus-icon">+</span> New Transaction
+                </button>
+            </header>
+
+            <!-- VIEWS -->
+
+            <!-- Dashboard View -->
+            <div id="dashboard-view" class="view-section active">
+                <!-- Balance Cards -->
+                <section class="balance-grid">
+                    <div class="card balance-card">
+                        <h3>Total Balance</h3>
+                        <h1 id="balance">$0.00</h1>
+                        <p class="trend positive">+2.4% from last month</p>
+                    </div>
+                    <div class="card income-card">
+                        <div class="card-header">
+                            <h3>Income</h3>
+                            <div class="icon-box income-icon">↓</div>
+                        </div>
+                        <p id="money-plus" class="money plus">+$0.00</p>
+                    </div>
+                    <div class="card expense-card">
+                        <div class="card-header">
+                            <h3>Expense</h3>
+                            <div class="icon-box expense-icon">↑</div>
+                        </div>
+                        <p id="money-minus" class="money minus">-$0.00</p>
+                    </div>
+                </section>
+
+                <!-- Charts & Recent Transactions -->
+                <section class="dashboard-grid">
+                    <div class="card chart-container">
+                        <h3>Expense Breakdown</h3>
+                        <div class="chart-wrapper">
+                            <canvas id="expenseChart"></canvas>
+                        </div>
+                    </div>
+
+                    <div class="card recent-transactions">
+                        <h3>Recent Transactions</h3>
+                        <ul id="list" class="list">
+                            <!-- Transactions will be injected here -->
+                        </ul>
+                    </div>
+                </section>
+            </div>
+
+            <!-- Transactions View -->
+            <div id="transactions-view" class="view-section" style="display: none;">
+                <div class="card">
+                    <h3>All Transactions</h3>
+                    <div class="filter-bar" style="padding: 16px 0; display: flex; gap: 10px;">
+                        <input type="text" placeholder="Search transactions..."
+                            style="padding: 8px; border-radius: 6px; border: 1px solid #ddd; width: 100%;">
+                    </div>
+                    <ul id="full-list" class="list">
+                        <!-- JS will populate this -->
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Wallet View -->
+            <div id="wallet-view" class="view-section" style="display: none;">
+                <div class="card" style="text-align: center; padding: 50px;">
+                    <h3>My Wallet</h3>
+                    <p>Manage your payment methods and budgets here.</p>
+                    <button class="btn"
+                        style="margin-top: 20px; background: var(--primary); color: white; padding: 10px 20px; border-radius: 8px; border: none;">Add
+                        Card</button>
+                </div>
+            </div>
+
+            <!-- Settings View -->
+            <div id="settings-view" class="view-section" style="display: none;">
+                <div class="card">
+                    <h3>App Settings</h3>
+                    <div class="setting-item" style="padding: 20px 0; border-bottom: 1px solid var(--border);">
+                        <h4>Dark Mode</h4>
+                        <p>Toggle app theme</p>
+                    </div>
+                    <div class="setting-item" style="padding: 20px 0;">
+                        <h4>Currency</h4>
+                        <p>Current: USD ($)</p>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+    <!-- Add Transaction Modal -->
+    <div class="modal-overlay" id="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Add Transaction</h3>
+                <button class="close-btn" id="close-modal">×</button>
+            </div>
+            <form id="form">
+                <div class="form-group">
+                    <label for="text">Description</label>
+                    <input type="text" id="text" placeholder="e.g. Salary, Rent, Groceries" />
+                </div>
+                <div class="form-group">
+                    <label for="amount">Amount <small>(- for expense, + for income)</small></label>
+                    <input type="number" id="amount" placeholder="0.00" />
+                </div>
+                <button class="submit-btn">Add Transaction</button>
+            </form>
+        </div>
+    </div>
+
+</body>
+
+</html>
