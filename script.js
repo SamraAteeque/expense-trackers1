@@ -1,4 +1,5 @@
-import Chart from 'chart.js/auto';
+// import Chart from 'chart.js/auto'; // Removed for Vanilla JS
+
 
 const balance = document.getElementById('balance');
 const money_plus = document.getElementById('money-plus');
@@ -289,6 +290,8 @@ function init() {
     updateFullList();
 }
 
-init();
-
-form.addEventListener('submit', addTransaction);
+// Ensure DOM is loaded before running
+document.addEventListener('DOMContentLoaded', () => {
+    init();
+    form.addEventListener('submit', addTransaction);
+});
